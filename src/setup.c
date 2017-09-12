@@ -19,13 +19,13 @@
    ------------------------------------------------
 */
 
-int SetupTCPServer(const char *service)
+int SetupTCPServer(const char *service, size_t flag)
 {
 	/* Setup the criteria for what kind(s) of addresses we want to look out for */
 	struct addrinfo add_Criteria;
 	memset(&addressCriteria, 0, sizeof(add_Criteria));
 	add_Criteria.ai_family   = AF_UNSPEC;		// Any address family
-	add_Criteria.ai_flags    = AI_PASSIVE;		// Accept on all ports/addresses
+	add_Criteria.ai_flags    = flag;		// Accept on all ports/addresses
 	add_Criteria.ai_socktype = SOCK_STREAM;
 	add_Criteria.ai_protocol = IPPROTO_TCP;
 
